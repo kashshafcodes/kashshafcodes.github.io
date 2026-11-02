@@ -78,8 +78,8 @@ h2 { font: 700 1.45rem/1.3 var(--display); margin: 0 0 16px; }
 .promises { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
 .promises ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
 
-.me { display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: start; }
-.avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; font: 700 1.5rem var(--display); }
+.me { display: grid; grid-template-columns: 96px 1fr; gap: 18px; align-items: start; }
+.avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; display: block; border: 2px dashed var(--thread); padding: 3px; background: var(--card); }
 .me p { margin: 0 0 8px; }
 
 .contact { text-align: left; padding-block: 34px 48px; position: relative; }
@@ -189,7 +189,8 @@ footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 32px; }
     <section>
       <h2 lang="bn">আমি কে</h2><h2 lang="en">Who I am</h2>
       <div class="me">
-        <div class="avatar" aria-hidden="true">KM</div>
+        <img class="avatar" src="me.jpg" width="96" height="96" alt="Kazi Marzuk">
+
         <div>
           <p lang="bn">আমি কাজী মারযুক, ঢাকার একজন ছাত্র আর ওয়েব ডেভেলপার। কলেজে আইটি ক্লাবের প্রোগ্রামিং সেক্রেটারি ছিলাম, ক্লাবের ওয়েবসাইট টিমের নেতৃত্ব দিয়েছি।</p>
           <p lang="en">I'm Kazi Marzuk, a student and web developer in Dhaka. I was Programming Secretary of my college IT Club and led its website team.</p>
