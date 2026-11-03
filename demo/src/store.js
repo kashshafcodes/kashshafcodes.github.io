@@ -37,7 +37,7 @@ export const store = {
 
   // Your credit in the footer. Every client site advertises you.
   // Delete these two lines if a client doesn't want it.
-  builtBy: "Kazi Marzuk",
+  builtBy: "Blacksheep Digital Studio",
   builtByUrl: "../",
 
   categories: [

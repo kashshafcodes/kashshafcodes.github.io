@@ -42,6 +42,6 @@ Everything about the shop lives in **`src/store.js`**. You never need to touch t
 
 ## Your credit
 
-`builtBy` and `builtByUrl` in `store.js` put "ওয়েবসাইট তৈরি করেছেন Kazi Marzuk" in the footer of
+`builtBy` and `builtByUrl` in `store.js` put "ওয়েবসাইট তৈরি করেছেন Blacksheep Digital Studio" in the footer of
 every client site. Point `builtByUrl` at your own WhatsApp so other sellers can find you.
 Remove the two lines if a client asks.
