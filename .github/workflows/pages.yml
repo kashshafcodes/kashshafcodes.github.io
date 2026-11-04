@@ -30,7 +30,7 @@ jobs:
       - name: Assemble site
         run: |
           mkdir -p _site/demo
-          cp index.html me.jpg _site/
+          cp index.html _site/
           cp -r demo/dist/. _site/demo/
       - uses: actions/upload-pages-artifact@v3
         with:
