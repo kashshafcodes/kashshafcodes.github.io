@@ -30,7 +30,7 @@ export const store = {
   ],
   payment: ["ক্যাশ অন ডেলিভারি", "বিকাশ", "নগদ"],
 
-  previewNote: "এটি একটি ডেমো দোকান। অর্ডার পাঠালে সেটা কাজীর WhatsApp-এ যাবে, যাতে আপনি নিজে দেখতে পারেন কীভাবে কাজ করে।",
+  previewNote: "এটি একটি ডেমো দোকান। অর্ডার পাঠালে সেটা Blacksheep Digital Studio-র WhatsApp-এ যাবে, যাতে আপনি নিজে দেখতে পারেন কীভাবে কাজ করে।",
 
   // Language for numbers and built-in labels: "bn" or "en".
   lang: "bn",
