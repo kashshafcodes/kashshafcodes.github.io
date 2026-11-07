@@ -1,245 +1,249 @@
-<!doctype html>
-<html lang="bn">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Blacksheep Digital Studio · Websites for Facebook shops</title>
-<meta name="description" content="ফেসবুক পেজের জন্য ওয়েবসাইট: পণ্যের ক্যাটালগ, দাম, আর সরাসরি WhatsApp-এ অর্ডার। Websites for Facebook shops in Bangladesh.">
-<meta name="theme-color" content="#1e2756">
-<meta property="og:title" content="Blacksheep Digital Studio">
-<meta property="og:description" content="Websites for Facebook shops in Bangladesh. Free demo first.">
-<meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%231e2756'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23c8323f'/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kazi Marzuk Portfolio</title>
+<meta name="description" content="Kazi Marzuk, web developer in Bangladesh. React, Vite, Supabase. Open to remote internships and junior web roles.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Tiro+Bangla&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Hind+Siliguri:wght@500&display=swap" rel="stylesheet">
 <style>
-/* Layout: one narrow reading column; the demo shop is the hero proof, prices and promises below */
+/* Layout: a single reading column with a left label rail; projects as spec sheets with status, stack and links */
 :root {
-  --paper: #f6f5f1;
-  --card: #ffffff;
-  --ink: #1e2756;
-  --thread: #c8323f;
-  --muted: #5f6478;
-  --line: #dcd9d0;
-  --wa: #1d8a4c;
-  --display: "Tiro Bangla", "Noto Serif Bengali", Georgia, serif;
-  --body: "Hind Siliguri", "Noto Sans Bengali", system-ui, sans-serif;
-  --stitch: repeating-linear-gradient(90deg, var(--thread) 0 11px, transparent 11px 18px);
+  --paper: #f3f5f2;
+  --surface: #ffffff;
+  --ink: #14201d;
+  --muted: #5a6762;
+  --line: #d8ded9;
+  --accent: #1d6b58;
+  --accent-soft: #e2efe9;
+  --live: #1d6b58;
+  --dev: #9a6a12;
+  --dev-soft: #f6ecd8;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --bangla: "Hind Siliguri", "Noto Sans Bengali", sans-serif;
+  color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
-  :root { --paper: #14172a; --card: #1c2038; --ink: #e8e9f2; --thread: #ef6b75; --muted: #a7abc2; --line: #33385a; --wa: #34b56c; color-scheme: dark; }
+  :root:not([data-theme="light"]) {
+    --paper: #0f1513; --surface: #161e1b; --ink: #e6ece9; --muted: #9aa8a2;
+    --line: #2a3531; --accent: #5cc4a3; --accent-soft: #17302a;
+    --live: #5cc4a3; --dev: #e0b45c; --dev-soft: #2e2716;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f1513; --surface: #161e1b; --ink: #e6ece9; --muted: #9aa8a2;
+  --line: #2a3531; --accent: #5cc4a3; --accent-soft: #17302a;
+  --live: #5cc4a3; --dev: #e0b45c; --dev-soft: #2e2716;
+  color-scheme: dark;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+html { -webkit-text-size-adjust: 100%; }
 body {
-  margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.65 var(--body);
-  padding: 0 max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px));
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 400 16px/1.6 var(--body);
 }
-a { color: inherit; }
-:focus-visible { outline: 2px solid var(--thread); outline-offset: 3px; }
-.col { max-width: 720px; margin: 0 auto; }
-header.top { display: flex; justify-content: space-between; align-items: center; padding-block: 18px; }
-.mark { font: 700 1.15rem/1 var(--display); text-decoration: none; }
-.lang { border: 1px solid var(--line); background: var(--card); border-radius: 99px; padding: 5px 12px; font: 500 0.9rem var(--body); color: var(--ink); cursor: pointer; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
-/* bilingual: show only the active language */
-html[data-lang="bn"] [lang="en"] { display: none !important; }
-html[data-lang="en"] [lang="bn"] { display: none !important; }
-
-.hero { padding-block: 28px 36px; position: relative; }
-.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--stitch); }
-.hero h1 { font: 700 clamp(1.9rem, 6vw, 2.8rem)/1.25 var(--display); margin: 0 0 14px; text-wrap: balance; }
-.hero p { margin: 0 0 22px; color: var(--muted); max-width: 52ch; }
-.actions { display: flex; flex-wrap: wrap; gap: 10px; }
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; border-radius: 8px; font-weight: 600; text-decoration: none; border: 1px solid var(--ink); }
-.btn.wa { background: var(--wa); border-color: var(--wa); color: #fff; }
-.btn.ghost { background: transparent; }
-
-section { padding-block: 34px; }
-h2 { font: 700 1.45rem/1.3 var(--display); margin: 0 0 16px; }
-.lead { color: var(--muted); margin: -6px 0 18px; }
-
-.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: s; }
-.steps li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; counter-increment: s; }
-.steps li::before { content: counter(s); width: 30px; height: 30px; border-radius: 50%; border: 1.5px dashed var(--thread); color: var(--thread); display: grid; place-items: center; font-weight: 700; }
-.steps b { display: block; }
-.steps span { color: var(--muted); }
-
-.gets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; margin: 0; padding: 0; list-style: none; }
-.gets li { padding-left: 18px; position: relative; }
-.gets li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 9px; height: 2px; background: var(--thread); }
-
-.prices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.price { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 6px; align-content: start; }
-.price.main { border: 1.5px dashed var(--thread); }
-.price h3 { margin: 0; font: 600 1.05rem var(--body); }
-.amount { font: 700 1.35rem/1.2 var(--display); font-variant-numeric: tabular-nums; }
-.price p { margin: 0; color: var(--muted); font-size: 0.92rem; }
-.terms { margin-top: 14px; color: var(--muted); font-size: 0.95rem; }
-
-.promises { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
-.promises ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
-
-.work { display: grid; gap: 6px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 20px; text-decoration: none; position: relative; transition: border-color .2s; }
-.work:hover { border-color: var(--thread); }
-.work-tag { justify-self: start; font-size: 0.8rem; font-weight: 600; color: var(--thread); border: 1px dashed var(--thread); border-radius: 99px; padding: 2px 10px; }
-.work strong { font: 700 1.2rem var(--display); }
-.work span { color: var(--muted); }
-.work em { font-style: normal; font-weight: 600; margin-top: 6px; }
-.about p { margin: 0 0 8px; }
-
-.contact { text-align: left; padding-block: 34px 48px; position: relative; }
-.contact::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--stitch); }
-.number { font: 700 1.5rem var(--display); letter-spacing: 0.02em; margin: 6px 0 14px; font-variant-numeric: tabular-nums; user-select: all; }
-footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 32px; display: flex; flex-wrap: wrap; gap: 4px 12px; }
-
-@media (max-width: 620px) {
-  body { font-size: 16px; }
-  .gets { grid-template-columns: 1fr; }
-  .prices { grid-template-columns: 1fr; }
+header.hero { padding: 72px 0 48px; border-bottom: 1px solid var(--line); }
+.hero-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; }
+.tag { font: 500 13px/1 var(--mono); color: var(--muted); letter-spacing: .02em; }
+.open {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 500 13px/1 var(--mono); color: var(--accent);
+  background: var(--accent-soft); padding: 8px 12px; border-radius: 999px;
 }
+.open::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+h1 {
+  font: 700 clamp(44px, 8vw, 84px)/1 var(--display); letter-spacing: -.03em;
+  margin: 40px 0 8px; text-wrap: balance;
+}
+.bn { font: 500 20px/1.4 var(--bangla); color: var(--muted); margin: 0 0 28px; }
+.lede { font-size: 20px; line-height: 1.5; max-width: 34em; margin: 0 0 32px; text-wrap: pretty; }
+.links { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  font: 500 15px/1 var(--body); padding: 13px 18px; border-radius: 10px;
+  border: 1px solid var(--line); color: var(--ink); background: var(--surface);
+}
+.btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn:hover { border-color: var(--accent); }
+.btn.primary:hover { background: var(--accent); border-color: var(--accent); }
+
+section { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 56px 0; border-bottom: 1px solid var(--line); }
+section > h2 { font: 500 13px/1.4 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin: 6px 0 0; }
+.stack-list { display: grid; gap: 24px; }
+
+.project { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px; display: grid; gap: 14px; }
+.p-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 16px; }
+.project h3 { font: 700 28px/1.1 var(--display); letter-spacing: -.02em; margin: 0; }
+.status { font: 500 12px/1 var(--mono); padding: 6px 10px; border-radius: 999px; white-space: nowrap; }
+.status.live { color: var(--live); background: var(--accent-soft); }
+.status.dev { color: var(--dev); background: var(--dev-soft); }
+.oneliner { font-size: 18px; font-weight: 500; margin: 0; max-width: 36em; }
+.project p { margin: 0; max-width: 40em; color: var(--ink); }
+.project ul { margin: 0; padding-left: 20px; max-width: 40em; display: grid; gap: 4px; }
+.project li::marker { color: var(--accent); }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 6px; border-top: 1px dashed var(--line); }
+.chip { font: 400 12.5px/1 var(--mono); color: var(--muted); border: 1px solid var(--line); padding: 7px 10px; border-radius: 6px; }
+.p-links { display: flex; flex-wrap: wrap; gap: 18px; font-weight: 500; }
+
+.role h3 { font: 700 24px/1.2 var(--display); margin: 0 0 4px; letter-spacing: -.01em; }
+.role .where { color: var(--muted); margin: 0 0 14px; }
+.role ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 40em; }
+
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; }
+.skills h3 { font: 600 15px/1.3 var(--body); margin: 0 0 8px; }
+.skills p { margin: 0; color: var(--muted); }
+
+.how { display: grid; gap: 14px; max-width: 40em; }
+.how p { margin: 0; }
+
+footer { padding: 48px 0 64px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 14px; }
+.contact-line { font: 500 15px/1.5 var(--mono); color: var(--ink); }
+
+@media (max-width: 720px) {
+  section { grid-template-columns: 1fr; gap: 20px; padding: 44px 0; }
+  header.hero { padding: 48px 0 40px; }
+  .project { padding: 22px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
 <body>
-<div class="col">
-  <header class="top">
-    <a class="mark" href="#top">Blacksheep Digital Studio</a>
-    <button class="lang" id="langBtn" type="button" aria-label="Switch language">English</button>
-  </header>
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="tag">Web developer · Bangladesh (GMT+6)</span>
+      <span class="open">Open to remote internships &amp; junior roles</span>
+    </div>
+    <h1>Kazi Marzuk</h1>
+    <p class="bn" lang="bn">কাজী মারজুক</p>
+    <p class="lede">I build web apps with React, from an AI study coach used by students preparing for admission tests to storefronts that let Facebook sellers in Bangladesh take orders on WhatsApp.</p>
+    <div class="links">
+      <a class="btn primary" href="mailto:kashshafcodes@gmail.com">kashshafcodes@gmail.com</a>
+      <a class="btn" href="https://github.com/kashshafcodes">GitHub: kashshafcodes</a>
+      <a class="btn" href="https://mnemoq-two.vercel.app">See Mnemoq live</a>
+    </div>
+  </div>
+</header>
 
-  <main id="top">
-    <section class="hero">
-      <h1 lang="bn">ফেসবুক পেজের জন্য ওয়েবসাইট বানাই, যাতে কাস্টমার নিজেই দেখে অর্ডার দিতে পারে।</h1>
-      <h1 lang="en">We build websites for Facebook shops, so customers can browse and order on their own.</h1>
-      <p lang="bn">আপনার সব পণ্য দাম সহ এক জায়গায়। কাস্টমার পছন্দ করে ঠিকানা দিলে পুরো অর্ডারটা আপনার WhatsApp-এ চলে আসে। ফেসবুকে সমস্যা হলেও আপনার দোকান খোলা থাকে।</p>
-      <p lang="en">All your products with prices in one place. A customer picks what they want, adds their address, and the full order arrives in your WhatsApp. Your shop stays open even if Facebook has a problem.</p>
-      <div class="actions">
-        <a class="btn ghost" href="demo/" target="_blank" rel="noopener"><span lang="bn">ডেমো দোকান দেখুন</span><span lang="en">See the demo shop</span></a>
-        <a class="btn wa" href="https://wa.me/8801891966267" target="_blank" rel="noopener"><span lang="bn">WhatsApp-এ কথা বলুন</span><span lang="en">Chat on WhatsApp</span></a>
-      </div>
-    </section>
+<main class="wrap">
+  <section id="work">
+    <h2>Selected work</h2>
+    <div class="stack-list">
 
-    <section>
-      <h2 lang="bn">কীভাবে কাজ করে</h2>
-      <h2 lang="en">How it works</h2>
-      <ol class="steps">
-        <li><div><b lang="bn">ফ্রি ডেমো</b><b lang="en">A free demo</b>
-          <span lang="bn">আপনার পেজের ছবি দিয়ে আগে একটা ডেমো বানিয়ে দেখাই। পছন্দ না হলে কোনো টাকা লাগবে না।</span>
-          <span lang="en">We make a demo with photos from your page first. If you don't like it, you pay nothing.</span></div></li>
-        <li><div><b lang="bn">আপনার আসল তথ্য</b><b lang="en">Your real details</b>
-          <span lang="bn">পণ্যের নাম, দাম, সাইজ আর ডেলিভারি চার্জ WhatsApp-এ পাঠান। বাকিটা আমরা বসিয়ে দেব।</span>
-          <span lang="en">Send your product names, prices, sizes and delivery charges on WhatsApp. We set everything up.</span></div></li>
-        <li><div><b lang="bn">৩ দিনে চালু</b><b lang="en">Live in 3 days</b>
-          <span lang="bn">আপনার নিজের লিংক পাবেন, পেজে আর ইনস্টাগ্রাম বায়োতে দিতে পারবেন।</span>
-          <span lang="en">You get your own link to put on your page and in your Instagram bio.</span></div></li>
-      </ol>
-    </section>
+      <article class="project">
+        <div class="p-head">
+          <h3>Mnemoq</h3>
+          <span class="status live">Live · in use</span>
+        </div>
+        <p class="oneliner">An AI study coach for Bangladeshi admission tests, built on the mistakes students actually make.</p>
+        <p>Students pick an exam path (BUET Engineering, NSU Admission or Medical MBBS/BDS) and set their exam date. Mnemoq diagnoses their weak topics, turns every mistake into a review card, and plans what to study each day until the exam. I'm developing it with feedback from early users.</p>
+        <ul>
+          <li><strong>AI diagnostic:</strong> generates topic-tagged questions for each exam section. A second AI pass re-solves every question and drops any it disagrees with, so a wrong answer key can't mis-diagnose a student.</li>
+          <li><strong>Exam readiness score:</strong> a 0–100 estimate per section that starts from the diagnostic and shifts toward the student's recent recall rate and mock results.</li>
+          <li><strong>Timed mock tests</strong> with original question banks (quant questions generated by a Python script that computes every answer), AI essay marking against a four-part rubric, and reports that turn missed questions into cards.</li>
+          <li><strong>Mistake-to-memory loop:</strong> quick add, AI-drafted memory hooks and similar MCQs, then typed or multiple-choice review on a spaced schedule.</li>
+          <li><strong>Daily missions, streaks and push reminders</strong> that respect each person's time zone and quiet hours.</li>
+          <li>Profiles, Supabase accounts, Bangla and English interface. AI keys stay on the server with per-user daily limits and a fallback provider.</li>
+        </ul>
+        <div class="meta">
+          <span class="chip">React</span><span class="chip">Vite</span><span class="chip">Supabase</span><span class="chip">Vercel serverless</span><span class="chip">Gemini API</span><span class="chip">Web Push</span><span class="chip">i18n</span>
+        </div>
+        <div class="p-links">
+          <a href="https://mnemoq-two.vercel.app">Live site</a>
+          <a href="https://github.com/kashshafcodes/mnemoq">Source code</a>
+        </div>
+      </article>
 
-    <section>
-      <h2 lang="bn">যা পাবেন</h2>
-      <h2 lang="en">What you get</h2>
-      <ul class="gets">
-        <li lang="bn">সব পণ্য ছবি আর দাম সহ, ক্যাটাগরি আর সার্চ</li><li lang="en">Every product with photos and prices, categories and search</li>
-        <li lang="bn">সাইজ বাছাই, স্টক শেষ হলে চিহ্ন</li><li lang="en">Size choice, and sold-out marking</li>
-        <li lang="bn">ডেলিভারি চার্জ সহ মোট দাম নিজে থেকেই হিসাব</li><li lang="en">Totals worked out automatically, delivery included</li>
-        <li lang="bn">পুরো অর্ডার সরাসরি WhatsApp বা Messenger-এ</li><li lang="en">Full orders straight to WhatsApp or Messenger</li>
-        <li lang="bn">মোবাইলে দ্রুত চলে, বাংলা বা ইংরেজিতে</li><li lang="en">Fast on mobile, in Bangla or English</li>
-        <li lang="bn">গুগলে খুঁজলে আপনার দোকান পাওয়া যায়</li><li lang="en">Your shop shows up when people search Google</li>
+      <article class="project">
+        <div class="p-head">
+          <h3>Seller Storefront</h3>
+          <span class="status live">Template · demo live</span>
+        </div>
+        <p class="oneliner">A reusable online shop for Facebook sellers in Bangladesh.</p>
+        <p>Most small sellers in Bangladesh run entirely on a Facebook page, answering “price koto?” in the comments. This template gives them a proper catalog. One data file holds the shop name, products and prices, so a new shop can be set up by editing that file.</p>
+        <ul>
+          <li>Bangla interface, product pages, a shopping bag and an order form</li>
+          <li>Orders go straight to the seller's WhatsApp as a formatted message</li>
+          <li>Built and tested for low-cost Android phones on mobile data</li>
+        </ul>
+        <div class="meta">
+          <span class="chip">React</span><span class="chip">Vite</span><span class="chip">WhatsApp ordering</span><span class="chip">GitHub Pages</span><span class="chip">Bangla UI</span>
+        </div>
+        <div class="p-links">
+          <!-- Replace this href with the live demo URL (e.g. your GitHub Pages link) -->
+          <a href="https://github.com/kashshafcodes">Live demo</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="p-head">
+          <h3>Jonopod <span lang="bn" style="font-family:var(--bangla);font-weight:500;font-size:.75em;color:var(--muted)">জনপদ</span></h3>
+          <span class="status dev">MVP in development</span>
+        </div>
+        <p class="oneliner">Evidence-based local development planning for Bangladesh, upazila by upazila.</p>
+        <p>A national planning platform that turns public data on population, health and services into clear, printable briefs for local planners. The MVP covers one upazila, Sandwip in Chattogram, to prove the approach before it scales across the country. The design rule is data integrity: no invented numbers.</p>
+        <ul>
+          <li>Every figure keeps its original value, source, reference year and geographic level</li>
+          <li>Missing data shows as “unavailable”, never as zero; unverified records stay flagged</li>
+          <li>Started by checking the dataset against source tables and resolving discrepancies in population and health-facility records</li>
+          <li>Print-ready layout that exports to PDF from the browser</li>
+        </ul>
+        <div class="meta">
+          <span class="chip">React</span><span class="chip">Vite</span><span class="chip">CSV / JSON data</span><span class="chip">Print CSS</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="leadership">
+    <h2>Leadership</h2>
+    <div class="role">
+      <h3>Programming Secretary</h3>
+      <p class="where">College IT Club</p>
+      <ul>
+        <li>Led the club's website development team</li>
+        <li>Organized national and international festivals, seminars and workshops</li>
+        <li>Managed sponsorships, partnerships and funding</li>
+        <li>Trained and developed new volunteers</li>
       </ul>
-    </section>
+    </div>
+  </section>
 
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div><h3>Languages</h3><p>JavaScript (ES6+), HTML, CSS, Python</p></div>
+      <div><h3>Front end</h3><p>React, Vite, responsive and mobile-first layouts, accessible markup</p></div>
+      <div><h3>Back end &amp; data</h3><p>Supabase (auth, database), Vercel serverless functions, Web Push, CSV and JSON datasets</p></div>
+      <div><h3>AI integration</h3><p>Gemini and Groq APIs, prompt design, validating AI output before users see it</p></div>
+      <div><h3>Shipping</h3><p>Git and GitHub, Vercel, GitHub Pages, VS Code</p></div>
+      <div><h3>Spoken</h3><p>English (professional), Bangla (native). I build interfaces in both.</p></div>
+    </div>
+  </section>
 
-    <section>
-      <h2 lang="bn">আমাদের কাজ</h2><h2 lang="en">Our work</h2>
-      <a class="work" href="demo/" target="_blank" rel="noopener">
-        <span class="work-tag" lang="bn">ডেমো দোকান</span><span class="work-tag" lang="en">Demo shop</span>
-        <strong lang="bn">নকশী ঘর</strong><strong lang="en">Nakshi Ghor</strong>
-        <span lang="bn">হাতে সেলাই করা কাঁথা, শাড়ি আর পাঞ্জাবির একটি দোকান। পুরো সাইটটা এভাবেই বানানো হয়।</span>
-        <span lang="en">A shop selling handmade kantha, sarees and panjabis. This is the kind of site we build.</span>
-        <em lang="bn">দেখুন →</em><em lang="en">View →</em>
-      </a>
-      <p class="terms" lang="bn">আমাদের প্রথম ক্লায়েন্টের সাইট চালু হলে এখানে দেখানো হবে, সাথে ক্লায়েন্টের মতামত।</p>
-      <p class="terms" lang="en">Our first client sites will appear here once they go live, with the owner's review.</p>
-    </section>
+  <section id="how">
+    <h2>How I work</h2>
+    <div class="how">
+      <p>I write and ship code myself, in JavaScript, HTML, CSS and Python. I can read a codebase, debug it, and explain why each part works the way it does. Everything on this page runs on code I've written, reviewed and deployed.</p>
+      <p>On top of that foundation I use AI tools the way a lead uses a fast junior: I break the problem down, give clear instructions, and check every output against my own understanding before it ships. That lets me move quickly without losing ownership of the result.</p>
+      <p>I build for the people who will actually use the thing: a student revising on a phone, a seller on mobile data, a planner who needs a printout.</p>
+    </div>
+  </section>
+</main>
 
-    <section>
-      <h2 lang="bn">দাম</h2>
-      <h2 lang="en">Prices</h2>
-      <div class="prices">
-        <div class="price">
-          <h3 lang="bn">ছোট দোকান</h3><h3 lang="en">Small shop</h3>
-          <div class="amount">৳3,000–5,000</div>
-          <p lang="bn">একবার দিতে হয়। ২০টি পর্যন্ত পণ্য, হোমমেড খাবার, কেক, হাতের কাজের পেজের জন্য।</p>
-          <p lang="en">One-time. Up to 20 products. For homemade food, cakes and handmade pages.</p>
-        </div>
-        <div class="price main">
-          <h3 lang="bn">ব্র্যান্ড</h3><h3 lang="en">Brand</h3>
-          <div class="amount">৳8,000–15,000</div>
-          <p lang="bn">একবার দিতে হয়। বেশি পণ্য আর ক্যাটাগরি, প্রিমিয়াম ডিজাইন, নিজের ডোমেইনে সেটআপ।</p>
-          <p lang="en">One-time. More products and categories, a premium design, set up on your own domain.</p>
-        </div>
-        <div class="price">
-          <h3 lang="bn">মাসিক আপডেট</h3><h3 lang="en">Monthly updates</h3>
-          <div class="amount">৳500–1,000</div>
-          <p lang="bn">ঐচ্ছিক। নতুন পণ্য, দাম বদল, স্টক আপডেট। WhatsApp-এ বললেই হবে।</p>
-          <p lang="en">Optional. New products, price changes, stock updates. Just tell me on WhatsApp.</p>
-        </div>
-      </div>
-      <p class="terms" lang="bn">অর্ধেক টাকা শুরুতে বিকাশে, বাকি অর্ধেক ওয়েবসাইট চালু হলে। নিজের ডোমেইন (যেমন yourshop.com) চাইলে সেটার খরচ, বছরে প্রায় ৳১,৫০০, আপনার নামে আলাদা।</p>
-      <p class="terms" lang="en">Half by bKash to start, the other half when the site goes live. If you want your own domain (like yourshop.com), it's registered in your name and costs about ৳1,500 a year on top.</p>
-    </section>
-
-    <section>
-      <div class="promises">
-        <h2 lang="bn">আমাদের কথা দেওয়া</h2><h2 lang="en">Our promises</h2>
-        <ul lang="bn">
-          <li>কখনো আপনার ফেসবুক পাসওয়ার্ড, OTP বা পেজের অ্যাকসেস চাইব না।</li>
-          <li>ডেমো দেখে পছন্দ না হলে কোনো টাকা নেব না, আর ডেমোটা মুছে দেব।</li>
-          <li>ওয়েবসাইট আর ডোমেইন আপনার নামে থাকবে, আমাদের নামে না।</li>
-        </ul>
-        <ul lang="en">
-          <li>We will never ask for your Facebook password, OTP or page access.</li>
-          <li>If you don't like the demo, you pay nothing and we delete it.</li>
-          <li>The website and domain belong to you, not to me.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2 lang="bn">আমরা কারা</h2><h2 lang="en">About the studio</h2>
-      <div class="about">
-        <p lang="bn">ব্ল্যাকশিপ ডিজিটাল স্টুডিও ঢাকার একটি ছোট ওয়েব স্টুডিও। ফেসবুক পেজের দোকানের জন্য সহজ, দ্রুত ওয়েবসাইট বানাই।</p>
-        <p lang="en">Blacksheep Digital Studio is a small web studio in Dhaka. We build simple, fast websites for Facebook shops.</p>
-        <p lang="bn">আপনার সঙ্গে সরাসরি কথা হবে, যে সাইটটা বানাচ্ছে তার সঙ্গেই।</p>
-        <p lang="en">You talk directly to the person building your site.</p>
-      </div>
-    </section>
-
-    <section class="contact">
-      <h2 lang="bn">কথা বলতে চাইলে</h2><h2 lang="en">Get in touch</h2>
-      <p class="lead" lang="bn">আপনার পেজের লিংক পাঠান, আমরা ফ্রি ডেমো বানিয়ে দেখাব।</p>
-      <p class="lead" lang="en">Send us your page link and we'll make you a free demo.</p>
-      <div class="number">01891-966267</div>
-      <a class="btn wa" href="https://wa.me/8801891966267" target="_blank" rel="noopener"><span lang="bn">WhatsApp-এ মেসেজ দিন</span><span lang="en">Message on WhatsApp</span></a>
-    </section>
-  </main>
-  <footer><span lang="bn">© ২০২৬ ব্ল্যাকশিপ ডিজিটাল স্টুডিও · ঢাকা</span><span lang="en">© 2026 Blacksheep Digital Studio · Dhaka</span></footer>
-</div>
-<script>
-(function () {
-  var root = document.documentElement, btn = document.getElementById("langBtn");
-  function set(l) {
-    root.dataset.lang = l; root.lang = l;
-    btn.textContent = l === "bn" ? "English" : "বাংলা";
-    try { localStorage.setItem("lang", l); } catch (e) {}
-  }
-  var q = new URLSearchParams(location.search).get("lang"), saved = null;
-  try { saved = localStorage.getItem("lang"); } catch (e) {}
-  set(q === "en" || q === "bn" ? q : saved || "bn");
-  btn.addEventListener("click", function () { set(root.dataset.lang === "bn" ? "en" : "bn"); });
-})();
-</script>
+<footer class="wrap">
+  <span class="contact-line">kashshafcodes@gmail.com · github.com/kashshafcodes</span>
+  <span>Kazi Marzuk · Bangladesh</span>
+</footer>
 </body>
 </html>
